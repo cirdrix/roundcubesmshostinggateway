@@ -1,0 +1,22 @@
+ -----------------------------------------------------------------------
+ SmsHosting Plugin for Roundcube
+ -----------------------------------------------------------------------
+
+ Plugin that adds a possibility to send sms message via smshosting.it gateway
+
+ -----------------------------------------------------------------------
+ 
+ 1. 	Configuration
+ 2.		Database
+ 
+ 1. Configuration
+ ----------------
+
+ Copy config.inc.php.dist to config.inc.php and set the options as described
+ within the file.
+
+
+ 2. Database (mysql)
+ ----------------
+ 
+ Execute update.sql file in the database folder to add smshosting configuration field for the roundcube identity schema 

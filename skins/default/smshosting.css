@@ -1,0 +1,125 @@
+/***** Roundcube|sms task styles *****/
+
+.smsh-button
+{
+    background: url('smshosting.png') 0px 0px no-repeat !important;
+}
+
+.clear {clear:both;}
+
+/* Left menu */
+
+#sms-compose-configurations
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 175px;
+    border: 1px solid #999;
+    background-color: #F9F9F9;
+}
+
+#sms-compose-configurations ul
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFF;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+#sms-compose-configurations ul li
+{
+    height: 18px;
+    font-size: 11px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-right: 4px;
+    border-bottom: 1px solid #EBEBEB;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+#sms-compose-configurations li a
+{
+    text-indent: -1000px;
+    width: 17px;
+    height: 16px;
+    display: block;
+    float: left;
+    text-decoration: none;
+}
+
+.boxlistcontent {padding-left:5px;}
+
+/* End Left Menu */
+
+
+#sms-compose-container
+{
+/*
+    position: absolute;
+    top: 0;
+    left: 185px;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+*/
+    background-color: #F2F2F2;
+    border: 1px solid #999999;
+    bottom: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+     left: 185px;
+}
+
+#compose-div
+{
+
+    top:0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /*
+    overflow: hidden;
+    left: 10px;
+    top: 10px;
+    width: auto;
+    */
+}
+
+#compose-div  form {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#compose-div  p {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#compose-div  div {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#compose-div  div.boxtitle {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#provider_config td.title,
+#emailtosms_config td.title,
+#sms_config td.title {
+    width:210px;
+    font-weight: bold;
+    color: #666;
+}
+
+#sms_counter_container {
+    float: right;
+}

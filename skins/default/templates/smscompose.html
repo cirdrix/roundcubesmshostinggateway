@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title><roundcube:object name="pagetitle" /></title>
+        <roundcube:include file="/includes/links.html" />
+        <script type="text/javascript" src="/functions.js"></script>
+        <script type="text/javascript" src="/splitter.js"></script>
+        <style type="text/css">
+            #sms-compose-configurations {
+                width: <roundcube:exp expression="!empty(cookie:composesplitterv) ? cookie:composesplitterv-5 : 175" />px;
+            }
+            #sms-compose-container {
+                left: <roundcube:exp expression="!empty(cookie:composesplitterv) ? cookie:composesplitterv+5 : 185" />px;
+                <roundcube:exp expression="browser:ie ? ('width: expression((parseInt(this.parentNode.offsetWidth)-'.(!empty(cookie:composesplitterv) ? cookie:composesplitterv+5 : 180).')+\\'px\\');') : ''" />
+            }
+        </style>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var $max1=160;
+                var $max2=148;
+                var $max3=154;
+                $('#_message').keyup(function() {
+                        var $len1=$('#_message').val().length;
+
+                        if ( $len1 <= $max1 ) {
+                            $('#sms_char_count').text( ($len1)+'/'+($max1) );
+                            $('#sms_msg_count').text('1/3');
+                        }else if ( $len1 <= ($max1+$max2) ) {
+                            $('#sms_char_count').text( ($len1-$max1)+'/'+($max2) );
+                            $('#sms_msg_count').text('2/3');
+                        }else if ( $len1 <= ($max1+$max2+$max3) ) {
+                            $('#sms_char_count').text( ($len1-($max1+$max2))+'/'+($max3) );
+                            $('#sms_msg_count').text('3/3');
+                        }
+
+                        $('#_message').val($('#_message').val().substr(0, ($max1+$max2+$max3)));
+                });
+            });
+        </script>
+
+        <roundcube:include file="/includes/taskbar.html" />
+        <roundcube:include file="/includes/header.html" />
+        <roundcube:if condition="env:task == 'settings'" />
+        <roundcube:include file="/includes/settingstabs.html" />
+        <roundcube:endif />
+
+        <div id="mainscreen">
+            <div id="sms-compose-configurations">
+                <div class="boxtitle"><roundcube:label name="smshosting.leftmenu_caption" /></div>
+                <div class="boxlistcontent">
+                    <roundcube:object name="plugin.composemenu" />
+                </div>
+                <div class="boxfooter">
+                </div>
+            </div>
+            <script type="text/javascript">
+                var composesplitv = new rcube_splitter({
+                    id: 'composesplitterv',
+                    p1: 'sms-compose-configurations',
+                    p2: 'sms-compose-container',
+                    orientation: 'v',
+                    relative: true,
+                    start: 175
+                });
+                rcmail.add_onload('composesplitv.init()');
+            </script>
+            <div id="sms-compose-container">
+                <div id="compose-div">
+                	<div class="boxtitle"><roundcube:label name="smshosting.compose_caption" /></div>
+                    <roundcube:object name="plugin.body" />
+                    <p>&nbsp;</p>
+                    <div id="sms-compose-help">
+                        <fieldset>
+                            <legend><roundcube:label name="smshosting._guide" /></legend>
+                            <roundcube:label name="smshosting._guide_send"/>
+                            <ul>
+                            	<li><roundcube:label name="smshosting._guide_send1"/></li>
+                            	<li><roundcube:label name="smshosting._guide_send2"/></li>
+                            	<li><roundcube:label name="smshosting._guide_send3"/></li>
+                            	<li><roundcube:label name="smshosting._guide_send4"/></li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

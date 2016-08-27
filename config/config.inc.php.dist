@@ -1,0 +1,14 @@
+<?php
+// Don't send sms message
+$rcmail_config['sms_debugmode'] = false;
+// Add useful log in the info log file
+$rcmail_config['sms_traceenabled'] = false;
+
+// Override user identity settings 
+$rcmail_config['sms_smshosting_username'] = null;
+$rcmail_config['sms_smshosting_password'] = null;
+
+// Smshosting webservice url, don't change
+$rcmail_config['sms_smshosting_wsapi_url'] = 'http://ws.smshosting.it/smsWebService/ManageSms?wsdl';
+$rcmail_config['sms_smshosting_wsapi_user_url'] = 'http://ws.smshosting.it/smsWebService/ManageUser?wsdl';
+$rcmail_config['sms_smshosting_buy_credit_url'] = 'http://www.smshosting.it';
